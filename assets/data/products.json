@@ -3,57 +3,57 @@
     {
       "id": 1,
       "name": "Titan X",
-      "specs": "RX 9070XT\nGigabyte B850\nAMD Ryzen 7 7800X3D\n32GB RAM",
+      "specs": "RX 9070XT,\nGigabyte B850,\nAMD Ryzen 7 7800X3D,\n32GB RAM",
       "price": 1599.99,
       "image": "/assets/images/product-images/titan-x.png"
     },
     {
       "id": 2,
       "name": "Phoenix Pro",
-      "specs": "RTX 5070 Ti\nGigabyte B850\nAMD Ryzen 7 7800X3D\n32GB RAM",
+      "specs": "RTX 5070 Ti,\nGigabyte B850,\nAMD Ryzen 7 7800X3D,\n32GB RAM",
       "price": 1699.99,
       "image": "/assets/images/product-images/phoenix-pro.png"
     },
     {
       "id": 3,
       "name": "Inferno",
-      "specs": "RTX 5080 Ti\nASRock Z890-CX\nIntel Core Ultra 7\n32GB RAM",
-      "price": 1799,
+      "specs": "RTX 5080 Ti,\nASRock Z890-CX,\nIntel Core Ultra 7,\n32GB RAM",
+      "price": 1699.99,
       "image": "/assets/images/product-images/inferno.png"
     },
     {
       "id": 4,
       "name": "Blaze",
-      "specs": "RTX 5070 Ti\nGigabyte B850\nAMD Ryzen 5 7600X3D\n32GB RAM",
-      "price": 899,
+      "specs": "RTX 5070 Ti,\nGigabyte B850,\nAMD Ryzen 5 7600X3D,\n32GB RAM",
+      "price": 1399.99,
       "image": "/assets/images/product-images/blaze.png"
     },
     {
       "id": 5,
       "name": "Apex Elite",
-      "specs": "RTX 4090 Ti\nIntel i9 K\n128GB RAM",
-      "price": 4999,
+      "specs": "RTX 5060 Ti,\nMSI B650,\nIntel i5 14400F,\n16GB RAM",
+      "price": 1199.99,
       "image": "/assets/images/product-images/apex-elite.png"
     },
     {
       "id": 6,
       "name": "Storm",
-      "specs": "RTX 4080 Super\nRyzen 9\n64GB RAM",
-      "price": 2799,
+      "specs": "RTX 5070 Ti,\nMSI B850,\nIntel Core Ultra 7 265K,\n32GB RAM",
+      "price": 1899.99,
       "image": "/assets/images/product-images/storm.png"
     },
     {
       "id": 7,
       "name": "Vortex",
-      "specs": "RTX 4070 Ti\nIntel i7 K\n48GB RAM",
-      "price": 2199,
+      "specs": "RTX 5060 Ti,\nASUS Z890 Hero,\nAMD Ryzen 7 7700X,\n32GB RAM",
+      "price": 1799.99,
       "image": "/assets/images/product-images/vortex.png"
     },
     {
       "id": 8,
       "name": "Nova",
-      "specs": "RTX 4060 Ti\nRyzen 5\n16GB RAM",
-      "price": 1199,
+      "specs": "RTX 5060,\nASRock X870E,\nIntel Core i5 14400F,\n16GB RAM",
+      "price": 1194.99,
       "image": "/assets/images/product-images/nova.png"
     }
   ]
