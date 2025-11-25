@@ -31,7 +31,7 @@
     {
       "id": 5,
       "name": "Apex Elite",
-      "specs": "RTX 5060 Ti,\nMSI B650,\nIntel i5 14400F,\n16GB RAM",
+      "specs": "RTX 5060 Ti,\nMSI B650 TOMAHAWK,\nIntel i5 14400F,\n16GB RAM",
       "price": 1199.99,
       "image": "/assets/images/product-images/apex-elite.png"
     },
