@@ -8,10 +8,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // When click hamburger menu, show or hide navigation menu
     menuToggle.addEventListener("click", function () {
       mainNav.classList.toggle("is-open");
-
-      // tell screen readers whether the menu is open or closed
-      let isExpanded = this.getAttribute("aria-expanded") === "true";
-      this.setAttribute("aria-expanded", !isExpanded);
     });
   }
 
@@ -27,7 +23,104 @@ document.addEventListener("DOMContentLoaded", function () {
     // load all products (PCs, graphics cards, etc.)
     loadShopProducts();
   }
+
+  // ===== CONTACT FORM VALIDATION =====
+  const contactForm = document.getElementById("contactForm");
+  if (contactForm) {
+    contactForm.addEventListener("submit", handleFormSubmit);
+  }
 });
+
+// Handle form submission
+// stops form from submitting and checks all validations
+function handleFormSubmit(formEvent) {
+  formEvent.preventDefault();
+
+  // get form values and remove extra whitespace
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const subject = document.getElementById("subject").value.trim();
+  const message = document.getElementById("message").value.trim();
+
+  // check if any required field is empty
+  if (!name || !email || !subject || !message) {
+    showError("Please fill out all required fields.");
+    return;
+  }
+
+  // check name length (at least 3 characters)
+  if (name.length < 3) {
+    showError("Name must be at least 3 characters.");
+    return;
+  }
+
+  // check name has no numbers
+  if (/\d/.test(name)) {
+    showError("Name cannot contain numbers.");
+    return;
+  }
+
+  // check email has @ symbol and dot
+  if (!email.includes("@") || !email.includes(".")) {
+    showError("Please enter a valid email address.");
+    return;
+  }
+
+  // check message length (at least 10 characters)
+  if (message.length < 10) {
+    showError("Message must be at least 10 characters.");
+    return;
+  }
+
+  // if all checks pass, show success
+  showSuccess("Message sent successfully!");
+  document.getElementById("contactForm").reset();
+}
+
+// Show error message
+// displays red error message at top of form
+function showError(message) {
+  const contactForm = document.getElementById("contactForm");
+  removeMessage();
+
+  const errorDiv = document.createElement("div");
+  errorDiv.className = "form-message error-message";
+  errorDiv.textContent = message;
+
+  contactForm.insertBefore(errorDiv, contactForm.firstChild);
+
+  // auto-remove message after 5 seconds
+  setTimeout(() => {
+    errorDiv.remove();
+  }, 5000);
+}
+
+// Show success message
+// displays green success message at top of form
+function showSuccess(message) {
+  const contactForm = document.getElementById("contactForm");
+  removeMessage();
+
+  const successDiv = document.createElement("div");
+  successDiv.className = "form-message success-message";
+  successDiv.textContent = message;
+
+  contactForm.insertBefore(successDiv, contactForm.firstChild);
+
+  // auto-remove message after 8 seconds
+  setTimeout(() => {
+    successDiv.remove();
+  }, 8000);
+}
+
+// Remove existing message
+// clears old error or success message before showing new one
+function removeMessage() {
+  const existing = document.querySelector(".form-message");
+  if (existing) {
+    existing.remove();
+  }
+}
 
 // === Load featured products (for index.html) ===
 // reads product data from a JSON file and shows 4 random ones
@@ -100,7 +193,7 @@ async function loadShopProducts() {
   const shopGrid = document.getElementById("shopGrid");
   if (!shopGrid) return;
 
-  // store all products in memory it can be sorted later without reloading
+  // store all products in memory so it can be sorted later without reloading
   window.allProducts = {};
 
   for (const category of jsonFiles) {
@@ -110,14 +203,13 @@ async function loadShopProducts() {
       const data = await response.json();
       const products = data.products;
 
-      // save the products it can be sorted
+      // save the products so it can be sorted
       window.allProducts[category.name] = products;
 
       // create a section on the page for this category
       const categorySection = document.createElement("div");
       categorySection.className = "category-section";
       // give it an ID based on the category name (for easy linking)
-      // find every sequence of one or more whitespace characters and replace each sequence with a single hyphen.
       categorySection.id = `category-${category.name
         .replace(/\s+/g, "-")
         .toLowerCase()}`;
@@ -140,7 +232,7 @@ async function loadShopProducts() {
       categorySection.appendChild(categoryGrid);
       shopGrid.appendChild(categorySection);
     } catch (error) {
-      // if can't load a category, catch
+      // if can't load a category, catch the error
       console.error(`Error loading ${category.name}:`, error);
     }
   }
@@ -169,7 +261,7 @@ function renderProducts(products, gridElement) {
       <div class="product-info">
         <div class="product-name">${product.name}</div>
         <div class="product-specs">${product.specs}</div>
-        <div class="product-price">$${product.price}</div>
+        <div class="product-price">${product.price}</div>
       </div>
     `;
 
