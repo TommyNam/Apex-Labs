@@ -26,7 +26,8 @@ https://main.doxs0r4r6z20w.amplifyapp.com/
 - Hamburger menu navigation for smaller screens
 - Smooth animation & hover effects
 - Accessible (ARIA labels for screen readers)
-
+### Disclaimer:
+- Most Footer Links are invalid and do not link to anything. (About Section, Support Section)
 
 ## Installation Guide (Run Locally)
 ### Prerequisites:
