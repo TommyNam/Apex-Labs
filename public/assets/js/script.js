@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const shopGrid = document.getElementById("shopGrid");
 
   if (featuredGrid) {
-    loadProducts("/assets/data/featuredPC.json", featuredGrid);
+    loadProducts("assets/data/featuredPC.json", featuredGrid);
   }
 
   if (shopGrid) {
@@ -91,10 +91,10 @@ function getRandomProducts(products, count) {
 async function loadShopProducts() {
   // list of all product categories and data
   const jsonFiles = [
-    { name: "Featured PCs", file: "/assets/data/featuredPC.json" },
-    { name: "Graphics Cards", file: "/assets/data/graphicsCards.json" },
-    { name: "Motherboards", file: "/assets/data/motherboards.json" },
-    { name: "CPUs", file: "/assets/data/cpus.json" },
+    { name: "Featured PCs", file: "assets/data/featuredPC.json" },
+    { name: "Graphics Cards", file: "assets/data/graphicsCards.json" },
+    { name: "Motherboards", file: "assets/data/motherboards.json" },
+    { name: "CPUs", file: "assets/data/cpus.json" },
   ];
 
   const shopGrid = document.getElementById("shopGrid");

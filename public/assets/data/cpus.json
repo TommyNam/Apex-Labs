@@ -5,28 +5,28 @@
       "name": "Intel Core Ultra 9 285K",
       "specs": "24 Cores,\nTDP 125W",
       "price": 499.99,
-      "image": "/assets/images/cpu/i9.png"
+      "image": "assets/images/cpu/i9.png"
     },
     {
       "id": 2,
       "name": "AMD Ryzen 9 9950X3D",
       "specs": "16 Cores,\nTDP 170W",
       "price": 649.99,
-      "image": "/assets/images/cpu/ryzen9.png"
+      "image": "assets/images/cpu/ryzen9.png"
     },
     {
       "id": 3,
       "name": "Intel Core Ultra 7 265K",
       "specs": "20 Cores,\nTDP 125W",
       "price": 269.99,
-      "image": "/assets/images/cpu/i7.png"
+      "image": "assets/images/cpu/i7.png"
     },
     {
       "id": 4,
       "name": "AMD Ryzen 7 9800X3D",
       "specs": "8 Cores,\nTDP 120W",
       "price": 429.99,
-      "image": "/assets/images/cpu/ryzen7.png"
+      "image": "assets/images/cpu/ryzen7.png"
     }
   ]
 }
