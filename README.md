@@ -27,7 +27,7 @@ https://main.doxs0r4r6z20w.amplifyapp.com/
 - Smooth animation & hover effects
 - Accessible (ARIA labels for screen readers)
 ### Disclaimer:
-- Most Footer Links are invalid and do not link to anything. (About Section, Support Section)
+- Some footer links are invalid and do not link to anything. (About Section, Support Section)
 
 ## Lighthouse Scores:
 ### Home Page
