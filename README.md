@@ -29,6 +29,17 @@ https://main.doxs0r4r6z20w.amplifyapp.com/
 ### Disclaimer:
 - Most Footer Links are invalid and do not link to anything. (About Section, Support Section)
 
+## Lighthouse Scores:
+### Home Page
+- Desktop: 93 Performance, 100 Accessibility, 100 Best Practices, 91 SEO
+- Mobile: 75 Performance, 100 Accessibility, 100 Best Practices, 91 SEO
+### Shop Page
+- Desktop: 81 Performance, 100 Accessibility, 100 Best Practices, 91 SEO
+- Mobile: 78 Performance, 100 Accessibility, 100 Best Practices, 91 SEO
+### Contact Page
+- Desktop: 100 Performance, 100 Accessibility, 100 Best Practices, 91 SEO
+- Mobile: 93 Performance, 100 Accessibility, 100 Best Practices, 91 SEO
+
 ## Installation Guide (Run Locally)
 ### Prerequisites:
 - Git
