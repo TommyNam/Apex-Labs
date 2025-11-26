@@ -184,7 +184,7 @@ function getRandomProducts(products, count) {
 async function loadShopProducts() {
   // list of all product categories and data
   const jsonFiles = [
-    { name: "Featured PCs", file: "assets/data/featuredPC.json" },
+    { name: "Prebuilds", file: "assets/data/featuredPC.json" },
     { name: "Graphics Cards", file: "assets/data/graphicsCards.json" },
     { name: "Motherboards", file: "assets/data/motherboards.json" },
     { name: "CPUs", file: "assets/data/cpus.json" },
