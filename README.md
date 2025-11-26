@@ -1,4 +1,4 @@
-ApexLabs is a responsive e-commerce website for selling gaming PCs and components.
+ApexLabs is a responsive fictional e-commerce website for selling gaming PCs and components.
 It showcases products dynamically loaded from JSON files and provides users with a smooth intuitive shopping experience across all devices.
 
 ## Project Overview:
