@@ -157,14 +157,21 @@ footer {
 }
 
 .social-links a {
-  color: #00d4ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
-  font-size: 1.2em;
   transition: transform 0.3s ease;
 }
 
 .social-links a:hover {
   transform: scale(1.2);
+}
+
+.social-links img {
+  height: 40px;
+  width: 40px;
+  object-fit: contain;
 }
 
 /* ============ */

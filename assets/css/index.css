@@ -200,7 +200,7 @@
   }
 }
 
-/* TABLET+ */
+/* Phone+ */
 @media (min-width: 481px) {
   .features-grid {
     display: grid;
@@ -217,7 +217,7 @@
   }
 }
 
-/* DESKTOP */
+/* Tablet */
 @media (min-width: 769px) {
   .products-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -230,5 +230,12 @@
 
   .hero-text h1 {
     font-size: 3.5em;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+    .products-grid {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
