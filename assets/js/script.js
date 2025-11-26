@@ -1,52 +1,203 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener("DOMContentLoaded", function () {
   // ===== HAMBURGER MENU =====
-  const menuToggle = document.querySelector('.menu-toggle');
-  const mainNav = document.querySelector('.main-nav');
+  // Wait for the page to fully load, then find the menu button and navigation menu
+  const menuToggle = document.querySelector(".menu-toggle");
+  const mainNav = document.querySelector(".main-nav");
 
   if (menuToggle && mainNav) {
-    menuToggle.addEventListener('click', function() {
-      mainNav.classList.toggle('is-open');
+    // When click hamburger menu, show or hide navigation menu
+    menuToggle.addEventListener("click", function () {
+      mainNav.classList.toggle("is-open");
 
-      let isExpanded = this.getAttribute('aria-expanded') === 'true';
-      this.setAttribute('aria-expanded', !isExpanded);
+      // tell screen readers whether the menu is open or closed
+      let isExpanded = this.getAttribute("aria-expanded") === "true";
+      this.setAttribute("aria-expanded", !isExpanded);
     });
   }
 
   // ===== LOAD PRODUCTS FROM JSON =====
-  loadProducts();
+  const featuredGrid = document.getElementById("productsGrid");
+  const shopGrid = document.getElementById("shopGrid");
+
+  if (featuredGrid) {
+    loadProducts("/assets/data/featuredPC.json", featuredGrid);
+  }
+
+  if (shopGrid) {
+    // load all products (PCs, graphics cards, etc.)
+    loadShopProducts();
+  }
 });
 
-async function loadProducts() {
+// === Load featured products (for index.html) ===
+// reads product data from a JSON file and shows 4 random ones
+async function loadProducts(jsonFile, gridElement) {
   try {
-    const response = await fetch('/assets/data/products.json');
+    // grab file from server
+    const response = await fetch(jsonFile);
+    // convert file to use
     const data = await response.json();
-    const products = data.products;
-    const grid = document.getElementById('productsGrid');
+    let products = data.products;
 
-    if (!grid) return;
+    if (!gridElement) return;
 
-    products.forEach(product => {
-      const card = document.createElement('div');
-      card.className = 'product-card';
+    // pick 4 random products to display
+    products = getRandomProducts(products, 4);
 
+    // loop through each product and create a card to display it
+    products.forEach((product) => {
+      const card = document.createElement("div");
+      card.className = "product-card";
+
+      // builds the HTML that shows the product image, name, specs, and price
       card.innerHTML = `
         <div class="product-image">
-          ${product.image ? `<img src="${product.image}" alt="${product.name}">` : '<span>No Image</span>'}
+          ${
+            product.image
+              ? `<img src="${product.image}" alt="${product.name}">`
+              : "<span>No Image</span>"
+          }
         </div>
         <div class="product-info">
           <div class="product-name">${product.name}</div>
           <div class="product-specs">${product.specs}</div>
-          <div class="product-price">$${product.price}</div>
+          <div class="product-price">${product.price}</div>
         </div>
       `;
 
-      grid.appendChild(card);
+      // add card to the grid on the page
+      gridElement.appendChild(card);
     });
   } catch (error) {
-    console.error('Error loading products:', error);
-    const grid = document.getElementById('productsGrid');
-    if (grid) {
-      grid.innerHTML = '<p style="color: white;">Error loading products</p>';
+    // error message if something goes wrong
+    console.error("Error loading products:", error);
+    if (gridElement) {
+      gridElement.innerHTML =
+        '<p style="color: white;">Error loading products</p>';
     }
   }
+}
+
+// Get random products from array
+// basically shuffles the products and picks the first however many you ask for
+function getRandomProducts(products, count) {
+  // copy of the array so it dont mess up the original
+  const shuffled = [...products].sort(() => Math.random() - 0.5);
+  // return only the first "count" items
+  return shuffled.slice(0, count);
+}
+
+// === Load all shop products (for shop.html) ===
+async function loadShopProducts() {
+  // list of all product categories and data
+  const jsonFiles = [
+    { name: "Featured PCs", file: "/assets/data/featuredPC.json" },
+    { name: "Graphics Cards", file: "/assets/data/graphicsCards.json" },
+    { name: "Motherboards", file: "/assets/data/motherboards.json" },
+    { name: "CPUs", file: "/assets/data/cpus.json" },
+  ];
+
+  const shopGrid = document.getElementById("shopGrid");
+  if (!shopGrid) return;
+
+  // store all products in memory it can be sorted later without reloading
+  window.allProducts = {};
+
+  for (const category of jsonFiles) {
+    try {
+      // fetch the json file for a category
+      const response = await fetch(category.file);
+      const data = await response.json();
+      const products = data.products;
+
+      // save the products it can be sorted
+      window.allProducts[category.name] = products;
+
+      // create a section on the page for this category
+      const categorySection = document.createElement("div");
+      categorySection.className = "category-section";
+      // give it an ID based on the category name (for easy linking)
+      // find every sequence of one or more whitespace characters and replace each sequence with a single hyphen.
+      categorySection.id = `category-${category.name
+        .replace(/\s+/g, "-")
+        .toLowerCase()}`;
+
+      // add the category title (like "Graphics Cards")
+      const categoryTitle = document.createElement("h3");
+      categoryTitle.className = "category-title";
+      categoryTitle.textContent = category.name;
+      categorySection.appendChild(categoryTitle);
+
+      // create a grid to hold all the products in this category
+      const categoryGrid = document.createElement("div");
+      categoryGrid.className = "products-grid";
+      // remember which category this grid belongs to (useful for sorting)
+      categoryGrid.dataset.category = category.name;
+
+      // draw the product cards in grid
+      renderProducts(products, categoryGrid);
+
+      categorySection.appendChild(categoryGrid);
+      shopGrid.appendChild(categorySection);
+    } catch (error) {
+      // if can't load a category, catch
+      console.error(`Error loading ${category.name}:`, error);
+    }
+  }
+}
+
+// Render products in grid
+// takes a list of products and makes them as cards in a container
+function renderProducts(products, gridElement) {
+  // clear out any old products that might be there
+  gridElement.innerHTML = "";
+
+  // loop through each product and create a card for it
+  products.forEach((product) => {
+    const card = document.createElement("div");
+    card.className = "product-card";
+
+    // build the HTML showing product image, name, specs, and price
+    card.innerHTML = `
+      <div class="product-image">
+        ${
+          product.image
+            ? `<img src="${product.image}" alt="${product.name}">`
+            : "<span>No Image</span>"
+        }
+      </div>
+      <div class="product-info">
+        <div class="product-name">${product.name}</div>
+        <div class="product-specs">${product.specs}</div>
+        <div class="product-price">$${product.price}</div>
+      </div>
+    `;
+
+    // add card to the grid
+    gridElement.appendChild(card);
+  });
+}
+
+// === Sort products function ===
+// lets the user organize products by price (low to high or high to low)
+function sortProducts(sortBy) {
+  const grids = document.querySelectorAll(".products-grid");
+
+  grids.forEach((grid) => {
+    const category = grid.dataset.category;
+    // make a copy of the products so it can be rearranged without breaking anything
+    let products = [...window.allProducts[category]];
+
+    // sort based on what the user chose
+    if (sortBy === "price-low") {
+      // sort from low to most expensive
+      products.sort((a, b) => a.price - b.price);
+    } else if (sortBy === "price-high") {
+      // sort from most expensive to low
+      products.sort((a, b) => b.price - a.price);
+    }
+
+    // redo the products in their new sorted order
+    renderProducts(products, grid);
+  });
 }

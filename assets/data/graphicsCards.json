@@ -1,0 +1,32 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "ASUS RTX 5090",
+      "specs": "32GB GDDR7,\nMax Power 1000W",
+      "price": 2999.99,
+      "image": "/assets/images/gpu/rtx-5090.png"
+    },
+    {
+      "id": 2,
+      "name": "PNY RTX 5080",
+      "specs": "16GB GDDR7,\nMax Power 850W",
+      "price": 979.99,
+      "image": "/assets/images/gpu/rtx-5080.png"
+    },
+    {
+      "id": 3,
+      "name": "ASROCK RX 9070 XT",
+      "specs": "16GB GDDR6,\nMax Power 800W",
+      "price": 999.99,
+      "image": "/assets/images/gpu/rx-9070.png"
+    },
+    {
+      "id": 4,
+      "name": "PowerColor RX 9060 XT",
+      "specs": "16GB GDDR6,\nMax Power 500W",
+      "price": 329.99,
+      "image": "/assets/images/gpu/rx-9060.png"
+    }
+  ]
+}

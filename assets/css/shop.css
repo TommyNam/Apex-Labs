@@ -9,6 +9,7 @@
   margin-bottom: 30px;
   text-align: center;
   font-weight: bold;
+  font-family: "Audiowide", sans-serif;
 }
 
 .products-grid {
@@ -72,6 +73,61 @@
   color: #00d4ff;
   font-weight: bold;
   margin-top: 10px;
+}
+
+/* SORT CONTROLS */
+.sort-controls {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 40px;
+  padding: 0 20px;
+}
+
+.sort-controls label {
+  color: white;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.sort-controls select {
+  padding: 10px 15px;
+  background-color: #222;
+  color: white;
+  border: 1px solid #00d4ff;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.sort-controls select:hover {
+  border-color: #00d4ff;
+}
+
+.sort-controls select:focus {
+  outline: none;
+  border-color: #00d4ff;
+  box-shadow: 0 0 5px rgba(0, 212, 255, 0.5);
+}
+
+/* Add category title styling */
+.category-section {
+  margin-bottom: 60px;
+}
+
+.category-title {
+  font-size: 2em;
+  color: #00d4ff;
+  margin-bottom: 30px;
+  font-family: "Audiowide", sans-serif;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .category-title {
+    font-size: 2.5em;
+  }
 }
 
 /* TABLET+ */

@@ -7,10 +7,20 @@
 
     <link rel="stylesheet" href="/assets/css/styles.css" />
     <link rel="stylesheet" href="/assets/css/shop.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Asimovian&family=Audiowide&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <header class="main-header">
-      <div class="logo">ApexLabs</div>
+      <a href="index.html" class="logo-section">
+        <img src="/assets/images/logo.png" alt="ApexLabs Logo" class="logo" />
+        <div class="logo-text">ApexLabs</div>
+      </a>
 
       <button
         class="menu-toggle"
@@ -31,10 +41,21 @@
 
     <main>
       <section class="products-section">
-        <h2>FEATURED PC's</h2>
-        <div class="products-grid" id="productsGrid"></div>
+        <h2>Inventory</h2>
+
+        <div class="sort-controls">
+          <label for="sortSelect">Sort by:</label>
+          <select id="sortSelect" onchange="sortProducts(this.value)">
+            <option value="">Default</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+          </select>
+        </div>
+
+        <div id="shopGrid"></div>
       </section>
     </main>
+
     <script src="/assets/js/script.js"></script>
   </body>
 </html>

@@ -11,18 +11,34 @@ body {
 }
 
 .main-header {
-  background-color: #444;
+  background-color: #000000;
   color: white;
   padding: 10px 15px;
   display: flex;
   /* Put logo and toggle side-by-side */
   justify-content: space-between;
   align-items: center;
+  height: 70px; /* fixed header*/
+  font-family: 'Audiowide', sans-serif;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between logo and text */
 }
 
 .logo {
+  height: 70px;
+  width: auto;
+  display: block;
+}
+
+.logo-text {
   font-size: 1.5em;
   font-weight: bold;
+  color: white;
+  font-family: "Audiowide", sans-serif;
 }
 
 /* Hamburger */
@@ -95,6 +111,7 @@ footer {
   font-size: 1.1em;
   margin-bottom: 15px;
   font-weight: bold;
+  font-family: 'Audiowide', sans-serif;
 }
 
 .footer-section ul {
@@ -190,7 +207,6 @@ footer {
   background-color: rgba(255, 255, 255, 0.1);
   outline: none;
 }
-
 
 /* =======--*/
 /* Tablets+ */

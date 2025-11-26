@@ -1,0 +1,32 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "MSI B850 TOMAHAWK",
+      "specs": "AM5 Ryzen Processors,\n5600 - 8400 MHz OC",
+      "price": 275.99,
+      "image": "/assets/images/motherboards/msi-b850.png"
+    },
+    {
+      "id": 2,
+      "name": "MSI Z890 TOMAHAWK",
+      "specs": "Intel LGA 1851 Processors,\n9200 - 6400 (OC) MHz",
+      "price": 229.99,
+      "image": "/assets/images/motherboards/msi-z890.png"
+    },
+    {
+      "id": 3,
+      "name": "ASUS X870 ROG Strix",
+      "specs": "AMD AM5 Ryzen Processors,\n8000+ MHz (OC)",
+      "price": 249.99,
+      "image": "/assets/images/motherboards/asus-strix.png"
+    },
+    {
+      "id": 4,
+      "name": "ASUS B650 TUF",
+      "specs": "AMD AM5 Ryzen Processors,\n4800 - 8000+ MHz (OC)",
+      "price": 499.99,
+      "image": "/assets/images/motherboards/asus-b650.png"
+    }
+  ]
+}
