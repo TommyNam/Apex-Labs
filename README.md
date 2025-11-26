@@ -16,7 +16,7 @@ https://main.doxs0r4r6z20w.amplifyapp.com/
 
 ## Features
 ### Pages:
-- **Home:** Hero section with featured products, why choose us section, and fade transitions
+- **Home:** Hero section with randomized featured products, why choose us section, and fade transitions
 - **Shop:** Browse 4 product categories (PCs, Graphics Cards, Motherboards, CPUs) with price sorting
 - **Contact:** Contact form with validation, success/error messages, and business info sidebar
 ### Other Features:
