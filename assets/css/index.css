@@ -217,6 +217,36 @@
   }
 }
 
+/* Surface Duo fix*/
+@media (max-width: 600px) {
+  .features-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .feature-box {
+    padding: 20px;
+  }
+
+  .feature-box h3 {
+    font-size: 1.1em;
+  }
+
+  .feature-box p {
+    font-size: 0.9em;
+  }
+
+  .hero-text h1 {
+    font-size: 1.8em;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(1, 1fr);
+    max-width: 250px;
+  }
+}
+
 /* Tablet */
 @media (min-width: 769px) {
   .products-grid {
@@ -227,7 +257,6 @@
     font-size: 2.5em;
   }
 
-
   .hero-text h1 {
     font-size: 3.5em;
   }
@@ -235,7 +264,7 @@
 
 /* Desktop */
 @media (min-width: 1025px) {
-    .products-grid {
+  .products-grid {
     grid-template-columns: repeat(4, 1fr);
   }
 }
